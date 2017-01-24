@@ -128,8 +128,10 @@ def recurisive_activity_selector(start_time, finish_time, k, size):
     while m <= size and start_time[m] < finish_time[k]:
         m = m + 1
     if m <= size:
+        print "first m", m
         result = recurisive_activity_selector(start_time, finish_time, m, size)
         result.insert(0, m)
+        print "second m", m
         print "result!!!!!!!!!!", result
         return result
     else:
