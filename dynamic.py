@@ -90,3 +90,50 @@ def largest_sum(nums):
             current_sum = 0
 
     return nums[start_of_best:end_of_best + 1]
+
+
+START = {
+    0: -1,
+    1: 1,
+    2: 3,
+    3: 0,
+    4: 5,
+    5: 3,
+    6: 5,
+    7: 6,
+    8: 8,
+    9: 8,
+    10: 2,
+    11: 12,
+}
+
+END = {
+    0: 0,
+    1: 4,
+    2: 5,
+    3: 6,
+    4: 7,
+    5: 9,
+    6: 9,
+    7: 10,
+    8: 11,
+    9: 12,
+    10: 14,
+    11: 16,
+}
+
+
+def recurisive_activity_selector(start_time, finish_time, k, size):
+    m = k + 1
+    while m <= size and start_time[m] < finish_time[k]:
+        m = m + 1
+    if m <= size:
+        result = recurisive_activity_selector(start_time, finish_time, m, size)
+        result.insert(0, m)
+        print "result!!!!!!!!!!", result
+        return result
+    else:
+        return []
+
+
+print recurisive_activity_selector(START, END, 0, 11)
